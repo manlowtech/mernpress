@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+.leftpost{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    flex: .6;
+    margin-right: 10px;
+}

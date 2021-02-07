@@ -1,0 +1,12 @@
+
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+.catlefttb{
+
+}
+.catsrightadd{
+    display: flex;
+    flex-direction: column;
+}
