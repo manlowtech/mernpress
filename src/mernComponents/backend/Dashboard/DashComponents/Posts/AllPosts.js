@@ -8,10 +8,11 @@ function AllPosts() {
    
 useEffect(()=>{
     const AllPost = async ()=>{
-        const postdata = await axios.get('/posts/allposts').then(res=>
+         await axios.get('/posts/allposts').then(res=>
         {
             if(res.data.success){
                 console.log(res.data.posts);
+                //console.log(res.data.posts);
                 setDatas(res.data.posts);
             }else{
             console.log("ERR DATA");
@@ -20,6 +21,7 @@ useEffect(()=>{
        
        
     }
+   // console.log(postdata);
     AllPost();
 },[]);
 

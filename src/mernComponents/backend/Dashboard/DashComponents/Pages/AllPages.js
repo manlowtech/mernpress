@@ -8,7 +8,7 @@ function AllPages() {
    
 useEffect(()=>{
     const AllPost = async ()=>{
-        const postdata = await axios.get('/posts/allpages').then(res=>
+        await axios.get('/posts/allpages').then(res=>
         {
             if(res.data.success){
                 console.log(res.data.pages);
