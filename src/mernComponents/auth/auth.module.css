@@ -1,0 +1,16 @@
+
+
+.regisContainer{
+    display:flex;
+    
+    justify-content:center;
+    align-items:center;
+    border:2px solid lightpink;
+    padding:.6rem;
+}
+.regis{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}

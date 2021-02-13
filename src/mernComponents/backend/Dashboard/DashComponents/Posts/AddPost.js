@@ -2,6 +2,9 @@ import React,{useState} from 'react';
 import axios from 'axios';
 import styles from './AddPost.module.css';
 import {TextField,List,ListItem,Button,Snackbar} from '@material-ui/core';
+import CatSelect from './catselect/CatSelect';
+//const AddThumbnail = 'AddThumbnail';
+import Thumbnail from '../misc/AddThumbnail' ;
 function AddPost() {
     const [title,setTitle] = useState('');
     const [success,setSuccess] = useState(false);
@@ -54,14 +57,14 @@ function AddPost() {
            value={description}
            onChange={e=>setDescription(e.target.value)}
            />
-        <Button onClick={handlePostSubmit} color="primary" variant="contained">Submit Post</Button>
+        <Button disabled={!title || !description} onClick={handlePostSubmit} color="secondary" variant="contained">Submit Post</Button>
         </div>
 
 
         <div className={styles.rightPane}>
         <List>
-            <ListItem button>Categories</ListItem>
-            <ListItem button>Media</ListItem>
+            <ListItem button><CatSelect/></ListItem>
+            <ListItem button><Thumbnail/></ListItem>
             <ListItem button>Templates</ListItem>
             <ListItem button>Type</ListItem>
             <ListItem button>Thumbnail</ListItem>

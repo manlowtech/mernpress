@@ -28,6 +28,8 @@ export const deletePage = async (id)=>{
 
 }
 export const deletePost = async (id)=>{
+    const url = `/posts/delete/${id}`;
+    
 
 }
 

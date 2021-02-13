@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import axios from 'axios';
 import styles from './AddPage.module.css';
 import {TextField,List,ListItem,Button,Snackbar} from '@material-ui/core';
+import Thumbnail from '../misc/AddThumbnail';
 function AddPage() {
     const [title,setTitle] = useState('');
     const [success,setSuccess] = useState(false);
@@ -54,14 +55,14 @@ function AddPage() {
            value={description}
            onChange={e=>setDescription(e.target.value)}
            />
-        <Button onClick={handlePostSubmit} color="primary" variant="contained">Submit Page</Button>
+        <Button disabled={!title.length | !description.length} onClick={handlePostSubmit} color="secondary" variant="contained">Submit Page</Button>
         </div>
 
 
         <div className={styles.rightPane}>
         <List>
             <ListItem button>Categories</ListItem>
-            <ListItem button>Media</ListItem>
+            <ListItem button><Thumbnail/></ListItem>
             <ListItem button>Templates</ListItem>
             <ListItem button>Type</ListItem>
             <ListItem button>Thumbnail</ListItem>

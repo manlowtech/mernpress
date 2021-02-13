@@ -3,9 +3,11 @@
     display: flex;
     justify-content: space-between;
     overflow:scroll;
+    height:65vh;
 }
 .catlefttb{
     overflow:scroll;
+    
 }
 .catsrightadd{
     display: flex;
