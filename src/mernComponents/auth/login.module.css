@@ -1,0 +1,26 @@
+.loginContainer{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    
+    height:100vh;
+    width:100vw;
+    background-color: beige;
+
+}
+
+.logins{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    padding :90px;
+ border-radius:9px;
+    background-color: lightgray;
+}
+
+
+.pt{
+   
+    margin-top: 10px !important;
+}

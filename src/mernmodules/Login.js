@@ -1,7 +1,7 @@
 import axios from 'axios';
 export const Login = async(obj)=>{
     const vars = {
-        username: obj.username,
+        email: obj.email,
         password:obj.password,
     }
     const logdata = await axios.post('/users/login',vars);
@@ -13,6 +13,8 @@ export const Register = async(obj)=>{
         username : obj.username,
         password : obj.password,
         email : obj.email,
+        role: 'admin',
+        status: 'active',
     }
     const register = await axios.post('/users/register',variables);
     return register.data;

@@ -1,17 +1,18 @@
 import React,{useState} from 'react';
 import {TextField,Button} from '@material-ui/core';
 //import axios from 'axios';
-import {Redirect} from 'react-router-dom';
+import styles from './login.module.css';
+import {Redirect,Link} from 'react-router-dom';
 import {Login} from '../../mernmodules/Login';
 //iport { convertLegacyProps } from '../../../node_modules/antd/lib/button/button';
 
 function LoginPage(props) {
-    const [username,setUserName] = useState('');
+    const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
     const onSubmits = async (e)=>{
         e.preventDefault();
         const variables = {
-            username:username,
+            email:email,
             password:password,
         }
         console.log(props);
@@ -23,20 +24,28 @@ function LoginPage(props) {
         }
     }
     return (
-        <div>
+        <div className={styles.loginContainer}>
+        <div className={styles.logins} >
             <TextField
-            onChange={e=>setUserName(e.target.value)}
-            value={username}
-            label= "username"
-            placeholder = "enter username"
+            className={styles.pt}
+            onChange={e=>setEmail(e.target.value)}
+            value={email}
+            color="secondary"
+            label= "Email"
+            placeholder = "enter email"
             />
              <TextField
+              className={styles.pt}
             onChange={e=>setPassword(e.target.value)}
             value={password}
-            label= "password"
+            label= "Password"
+            color="secondary"
             placeholder = "enter password"
             />
-            <Button disabled={!username || !password} color="secondary" variant="outlined" onClick={onSubmits}>LOGIN !</Button>
+           
+            <Button size="large" className={styles.pt} disabled={!email || !password} color="secondary" variant="contained" onClick={onSubmits}>LOGIN !</Button>
+            <p className={styles.pt}>Dont have Account ? <Link color="secondary" to="/register">Register Now</Link> </p>
+          </div>
         </div>
     )
 }

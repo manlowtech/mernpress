@@ -4,7 +4,7 @@ const path = require('path');
 //const basename = path.basename(__filename);
 module.exports = {
     create(req,res){
-
+//read themes directory and install foldernames in the Database
         fs
         .readdir('../src/Themes',(err,files)=>{
            console.log(files);
@@ -14,15 +14,35 @@ module.exports = {
         })
         .forEach(file => {
          // const theme = require(path.join('../../src/Themes', file));
-          return Config
-        .create({
-            name:file ,
-            role: "theme",
-            status: "installed",
-            slug:file,
+         Config.findOne({
+             where:{
+                 name:file,
+                 role:"theme",
+                 slug:file,
+             }
+         }).then(theme=>{
+             if(!theme){
+                return Config
+                .create({
+                    name:file ,
+                    role: "theme",
+                    status: "installed",
+                    slug:file,
+                })
+               
+             }else{
+                 return;
+             }
+         }).catch(err=>console.log(err));
+         fs.readdir(`../src/Themes/${file}`,(err,files)=>{
+             files.forEach(file=>{
+                const coverImagePath = `/Themes/${file}/cover.png`;
+                const ConfigFilePath = `/Themes/${file}/${file}.js`;
+             })
+            
+         });
         })
-        });
-        })
+        })//end read dir
     
     },
     findAll(req,res){
