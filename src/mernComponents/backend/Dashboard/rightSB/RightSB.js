@@ -9,6 +9,7 @@ import AllPosts from '../DashComponents/Posts/AllPosts';
 import PostsCats from '../DashComponents/Posts/PostsCats';
 import AddPages from '../DashComponents/Pages/AddPage';
 import AllPages from '../DashComponents/Pages/AllPages';
+import AllThemes from '../DashComponents/Themes/AllThemes';
 
 
 function TabPanel(props) {
@@ -50,6 +51,7 @@ function RightSB({value,menuname}) {
       {menuname === "Categories" && (<PostsCats/>)  }
       {menuname === "AddNewPage" && (<AddPages/>)  }
       {menuname === "AllPages" && (<AllPages/>)  }
+      {menuname === "AllThemes" && (<AllThemes/>)  }
       
       <TabPanel value={value} index={3}>
       <AddPost/>

@@ -1,18 +1,22 @@
 import {userConstants} from './types';
 import axios from 'axios';
 
-export const login = (username,password)=>(dispatch)=>{
-    dispatch(request({ username }));
+
+
+
+export const login = (email,password)=>(dispatch)=>{ 
+   
+      dispatch(request({ email }));
     const variables = {
-        username,
+        email,
         password,
     }
-    let user = {};
+   
 axios.post('/users/login',variables)
 .then(user=>{
-    user=user;
-localStorage.setItem('user',JSON.stringify(res));
+localStorage.setItem('user',JSON.stringify(user));
 dispatch(success(user));
+
 
 })
 

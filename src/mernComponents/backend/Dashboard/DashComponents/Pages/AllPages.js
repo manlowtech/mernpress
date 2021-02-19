@@ -24,7 +24,7 @@ useEffect(()=>{
 },[]);
 
 const PostTable = ()=> Datas.map((post,i)=>(
-    <>
+    <div key={i}>
     <TableRow key={i}>
         <TableCell>{post.id}</TableCell>
         <TableCell>{post.title}</TableCell>
@@ -35,7 +35,7 @@ const PostTable = ()=> Datas.map((post,i)=>(
         <TableCell>{post.author}</TableCell>
         <TableCell>{post.createdAt}</TableCell>
     </TableRow>
-    </>
+    </div>
  ));
     return (
         <div>

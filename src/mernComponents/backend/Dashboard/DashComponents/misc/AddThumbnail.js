@@ -1,14 +1,18 @@
 import React from 'react'
 import Dropzone from 'react-dropzone';
-function AddThumbnail() {
+import styles from './AddThumbnail.module.css';
+import {PlusOne} from '@material-ui/icons';
+function AddThumbnail({onDrop}) {
+ 
     return (
         <div>
-            <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
+            <Dropzone onDrop={onDrop}>
   {({getRootProps, getInputProps}) => (
-    <section>
+    <section className={styles.AddThumbnail}>
       <div {...getRootProps()}>
         <input {...getInputProps()} />
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <p className={styles.PlusOne}><PlusOne/></p>
+        <span>AddThumbnail</span>
       </div>
     </section>
   )}

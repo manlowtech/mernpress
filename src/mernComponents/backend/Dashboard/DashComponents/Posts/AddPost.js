@@ -4,15 +4,20 @@ import styles from './AddPost.module.css';
 import {TextField,List,ListItem,Button,Snackbar} from '@material-ui/core';
 import CatSelect from './catselect/CatSelect';
 //const AddThumbnail = 'AddThumbnail';
-import Thumbnail from '../misc/AddThumbnail' ;
+import MediaModal from '../misc/mediaModal/MediaModal' ;
 function AddPost() {
-    const [title,setTitle] = useState('');
     const [success,setSuccess] = useState(false);
+    const [title,setTitle] = useState('');
+    const [category,setCategory] = useState('Uncategorized');
     const [Post,setPost] = useState([]);
     const [description,setDescription] = useState('');
     const handleInputChange = (e)=>{
         setTitle(e.target.value);
         
+    }
+    const handleCatChange= (catname)=>{
+        console.log(catname);
+        setCategory(catname);
     }
     const handleClose = ()=>{
         setSuccess(false);
@@ -28,6 +33,7 @@ function AddPost() {
             post_content : description,
             title : title,
             post_type : "post",
+            category:category,
         }
           await axios.post('/posts/create',variable)
             .then(res=> console.log(res));
@@ -63,8 +69,8 @@ function AddPost() {
 
         <div className={styles.rightPane}>
         <List>
-            <ListItem button><CatSelect/></ListItem>
-            <ListItem button><Thumbnail/></ListItem>
+            <ListItem button><CatSelect handleCatChange={handleCatChange} /></ListItem>
+            <ListItem button><MediaModal/></ListItem>
             <ListItem button>Templates</ListItem>
             <ListItem button>Type</ListItem>
             <ListItem button>Thumbnail</ListItem>

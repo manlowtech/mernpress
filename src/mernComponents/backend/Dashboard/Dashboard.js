@@ -36,7 +36,7 @@ const [items, setItems] = useState([
       Icon: InboxIcon,
       expanded: false,
       children: [
-        { name: 'All Themes', Icon: MailIcon },
+        { name: 'AllThemes', Icon: MailIcon },
         { name: 'Install New Theme', Icon: MailIcon }
       ]
     },

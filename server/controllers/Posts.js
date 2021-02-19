@@ -6,6 +6,7 @@ module.exports = {
             title : req.body.title, 
             post_content : req.body.post_content,
             post_type : req.body.post_type,
+            post_category:req.body.category,
         }).then(t=>res.status(200).send(t))
         .catch(err => res.status(400).send(err));
     },
@@ -26,5 +27,22 @@ module.exports = {
             }
         }).then(data=> res.status(200).json({success: true , pages : data ,}))
         .catch(err=> res.status(400).json({err : err}));
-    }
+    },
+    findOnePost(req,res){
+        return Posts
+        .findOne({
+            where: {
+                id:req.params.post_id,
+             }
+        }).then(post=> res.status(200).json({success:true,post:post}) )
+        .catch(err=>console.log(err));
+    },
+    updatePost(req,res){
+        return Posts.update(req.body,{
+            where:{
+                id:req.params.post_id,
+            }
+        }).then(result=>res.status(200).json({success:true,post:result}))
+        .catch(err=>console.log(err));
+    },
 }

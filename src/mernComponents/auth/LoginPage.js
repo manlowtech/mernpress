@@ -3,28 +3,32 @@ import {TextField,Button} from '@material-ui/core';
 //import axios from 'axios';
 import styles from './login.module.css';
 import {Redirect,Link} from 'react-router-dom';
-import {Login} from '../../mernmodules/Login';
+import {useHistory} from 'react-router-dom';
+//import {Login} from '../../mernmodules/Login';
+import { useDispatch,useSelector} from 'react-redux';
+import {login} from '../backend/redux/actions/loginAction';
 //iport { convertLegacyProps } from '../../../node_modules/antd/lib/button/button';
 
 function LoginPage(props) {
+    const dispatch =  useDispatch();
+     const history = useHistory();
+    const loggingIn = useSelector(state=>state.loggingIn)
+    const loggedIn = useSelector(state=>state.loggedIn)
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
-    const onSubmits = async (e)=>{
+
+    const onSubmits =  (e)=>{
         e.preventDefault();
-        const variables = {
-            email:email,
-            password:password,
-        }
-        console.log(props);
-     const logdatas = await  Login(variables);
-        console.log(logdatas);
-        if(logdatas.success){
-            alert('Login SuccessFull');
-                   <Redirect to="/admin/4"/>           // props.history.push('/admin/manlow');
-        }
+       
+        dispatch(login(email,password));
+       
+    
     }
     return (
+       
         <div className={styles.loginContainer}>
+         { loggingIn ? alert("LOGGING IN NOW") : " "}
+         { loggedIn ? history.push('/admin/5') : " "}
         <div className={styles.logins} >
             <TextField
             className={styles.pt}

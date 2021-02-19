@@ -1,5 +1,8 @@
 import axios from 'axios';
-
+export const getActiveTheme = async()=>{
+    const theme = await axios.get('/themes/getactivetheme');
+    return theme.data;
+}
 export const ThemeInit = async()=>{
     const vars = {
         name : "name",
@@ -10,6 +13,6 @@ export const ThemeInit = async()=>{
 }
 
 export const getThemes = async ()=>{
-    const data = await axios.get('/themes/allthemes');
-    return data.themes;
+    const themes = await axios.get('/themes/allthemes');
+    return themes.data;
 }

@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 //const logger = require('morgan');
 const app = express();
-app.use(cors({origin:"http://localhost:3000"}));
+app.use(cors());
 //app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -11,6 +11,7 @@ require('./routes')(app);
 app.get('*', (req, res) => res.status(200).send({
     message: 'Welcome to  the beginning of nothingness.',
 }));
+
 
 const port = process.env.PORT || 5000;
 

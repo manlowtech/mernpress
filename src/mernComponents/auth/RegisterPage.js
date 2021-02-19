@@ -4,6 +4,7 @@ import {Redirect,Link} from 'react-router-dom';
 import {TextField,Button} from '@material-ui/core';
 import styles from './auth.module.css';
 import {Register} from '../../mernmodules/Login';
+import {dispatch,useSelect}  from 'react-redux';
 function RegisterPage() {
     const [name,setName] = useState('');
     const [username,setUsername] = useState('');

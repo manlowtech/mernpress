@@ -19,6 +19,13 @@ MernPress comes in two formats for:--
   ## Usage
   To build a website download and install Mernpress Themes and Addons from the Admin Dashboard and Happy Blogging
 
+  ## MernPress Supported Databases
+   1. Mysql
+   2. Postgres
+   3. Sqllite and etc (sql Databases);
+
+   ## Future Supports
+   1. we are working on providing supports for All SQL and NoSQL databases 
    ## Project Status 
    Done and Still Updating working with different Authors.
 
@@ -36,5 +43,7 @@ MernPress comes in two formats for:--
  Instagram: instagram.com/realManlow 
 
  ## Authors
+ ```bash
  Manlow Charumbira
+ ```
 

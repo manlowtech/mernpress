@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import {FormControl,NativeSelect,Paper} from '@material-ui/core';
 import {getCategories} from '../../../../../../mernmodules/Taxonomies';
-function CatSelect() {
+function CatSelect({handleCatChange}) {
     //const [value,setValue] = useState('');
     const [cat,setCat] = useState([]);
     useEffect(()=>{
@@ -14,7 +14,7 @@ function CatSelect() {
         <Paper>
             <FormControl>
             <label>Choose Category</label>
-                <NativeSelect>
+                <NativeSelect onChange={(e)=>handleCatChange(e.target.value)}>
                     <option value="Uncategorized">Default1</option>
                    {cat && cat.map((cate,i)=><>
                    <option value={cate.opt_name} key={i}>{cate.opt_name}</option>

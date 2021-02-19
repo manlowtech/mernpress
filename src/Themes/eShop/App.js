@@ -3,7 +3,7 @@ import React from 'react'
 function App() {
     return (
         <div>
-            Theme App Js
+            Theme App Js EShop
         </div>
     )
 }

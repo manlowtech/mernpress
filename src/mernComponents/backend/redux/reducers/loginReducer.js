@@ -1,6 +1,6 @@
 import {userConstants} from '../actions/types';
 
-const loginReducer = (state={},action)=>{
+export const loginReducer = (state={},action)=>{
 const user = JSON.parse(localStorage.getItem('user'));
     switch(action.type){
         case userConstants.LOGIN_REQUEST:
@@ -14,10 +14,14 @@ const user = JSON.parse(localStorage.getItem('user'));
               user : action.user,
           };
           case userConstants.LOGIN_FAILURE:
-          return {};
+          return {
+
+          };
         case userConstants.LOGOUT:
-         return {};
-        default : state;
+         return {
+            loggedIn:false ,
+         };
+        default : return state;
 
           
     }

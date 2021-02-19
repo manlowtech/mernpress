@@ -37,6 +37,8 @@
     "redux": "^4.0.5",
     "redux-devtools": "^3.7.0",
     "redux-devtools-extension": "^2.13.8",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4"
   },
@@ -63,5 +65,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-admin": "^3.12.2"
   }
 }

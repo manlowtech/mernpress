@@ -11,23 +11,27 @@ module.exports = {
     }).then(dat=>res.status(200).json({success:true,data:dat})).catch(err=>console.log(err));
     },
     findAllMenus(req,res){
-        let children = {};
+       // let children = {};
        Menus.findAll({
             where:{
                 role: "submenupage",
             }
-        }).then(data=> children=data)
+        }).then(data=> {
+            if(data){
+                return
+                Menus.findAll({
+                    where:{
+                        role : "dashboardmenupage",
+                    }
+                }).then(dat=>res.status(200).json({
+                    menus:{
+                        main:dat,
+                        child:data,
+                    }
+                })).catch(err=>console.log(err));
+            }
+        })
         .catch(err=>console.log(err));
-        return
-        Menus.findAll({
-            where:{
-                role : "dashboardmenupage",
-            }
-        }).then(dat=>res.status(200).json({
-            menus:{
-                main:dat,
-                child:children,
-            }
-        })).catch(err=>console.log(err));
+       
     }
 }
