@@ -26,8 +26,8 @@ function AllPosts(props) {
         AllPost();
     }, []);
     const handlePostDelete = async (pid) => {
-
-        await axios.delete(`/post/delete/${pid}`);
+//props.history.push('/admin/hello');
+       // await axios.delete(`/post/delete/${pid}`);
 
     }
 
@@ -37,14 +37,14 @@ function AllPosts(props) {
                         <span  ><Link to={`/admin/post/update/${post.id}`} >Edit </Link> </span>
                         <span onClick={() => handlePostDelete(post.id)}  >Delete</span>
                     </div>
-            <TableRow >
-      
+           
+                    <TableRow >
                 <TableCell  >{post.id} </TableCell>
                 <TableCell>{post.title}</TableCell>
                 <TableCell>{post.post_content}</TableCell>
                 <TableCell>{post.post_category}</TableCell>
-                <TableCell></TableCell>
-                <TableCell></TableCell>
+                <TableCell>{post.id}</TableCell>
+                <TableCell>{post.id}</TableCell>
                 <TableCell>{post.author}</TableCell>
                 <TableCell>{post.createdAt}</TableCell>
             
@@ -53,7 +53,7 @@ function AllPosts(props) {
         </div>
     ));
     return (
-        <div>
+        <div className={styles.mainContainer}>
             {console.log(Datas)}
             <Paper>
                 <Table>
@@ -71,7 +71,9 @@ function AllPosts(props) {
                         <Divider />
                     </TableHead>
 
-                    <TableBody>{Datas.length ? <PostTable /> : <CircularProgress />}</TableBody>
+                    <TableBody>
+                    {Datas.length ? <PostTable /> : <CircularProgress />}
+                    </TableBody>
                 </Table>
             </Paper>
 

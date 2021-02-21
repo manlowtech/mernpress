@@ -6,7 +6,7 @@ import InboxIcon from '@material-ui/icons/Inbox';
 import MailIcon from '@material-ui/icons/Mail';
 import ContactsIcon from '@material-ui/icons/Contacts';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
-
+import NavBar from './NavBar';
 function Dashboard() {
   const [value, setValue] = useState(0);
   const [Menu, setMenu] = useState(0);
@@ -99,13 +99,16 @@ const [items, setItems] = useState([
   }
 
   return (
+    <div className={styles.DashboardMain}>
+      <NavBar/>
     <div className={styles.container}>
-      <div>
+      <div className={styles.leftBar}>
         <LeftSB onClickItem={onClickItem} items={items} onClick={onClick} value={value} />
       </div>
       <div className={styles.rightbar}>
         <RightSB value={value} menuname={Menu}/>
       </div>
+    </div>
     </div>
   )
 }

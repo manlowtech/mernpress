@@ -18,6 +18,7 @@ module.exports = {
             }
         }).then(data=> {
             if(data){
+                console.log(data)
                 return
                 Menus.findAll({
                     where:{

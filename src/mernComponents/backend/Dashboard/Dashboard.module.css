@@ -1,9 +1,18 @@
+.DashboardMain{
+    width: 100vw;
+    height:100vh;
+}
+.leftBar{
+    width: 30%;
+    height: 100%;
+
+}
 .container{
     display:flex;
-    width: 1280px;
 }
 
 .rightbar{
-    width: 1000px;
+    width: 70%;
+    height: 100%;
 
 }

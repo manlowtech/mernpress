@@ -1,12 +1,12 @@
 
-const Menus = [
+export const Menus = [
         {
             menu_name:"Posts",
             slug:"posts",
             component: "Posts",
             children:[
                 {
-                    menu_name:"Add New",
+                menu_name:"Add New",
                 slug:"add_new_post",
                 component: "AddPost",
                 parent:"posts"
@@ -17,5 +17,6 @@ const Menus = [
                 component: "AllPosts",
                 }
             ]
-        }
+        },
+
 ]

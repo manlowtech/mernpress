@@ -30,7 +30,8 @@ export const addSubMenuPage = async (parent,name,slug,component,role="submenupag
 export const getMenuPages = async ()=>{
     const url = '/menu/alldashboardmenupages';
     const data = await axios.get(url);
-    return data.menus;
+    console.log(data.data);
+    return data.data;
 }
 
 export const deleteMenuPages = async (id)=>{

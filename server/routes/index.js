@@ -14,7 +14,8 @@ app.get('/themes/getactivetheme',configs.findActiveTheme);
     app.post('/users/login', UsersCont.findAll);
     //app.post('/users/register',Users.create);
     //app.get('/users/login',Users.findAll);
-
+///======= POST THUMBNAIL DATAS....////
+     app.post('/posts/uploadImage',PostsController.uploadImage);
     // ======ALL POSTS ROUTES ====//
     app.post('/posts/create', PostsController.create);
     app.post('/posts/createpage', PostsController.create)

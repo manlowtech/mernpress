@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBar from '../NavBar';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -45,7 +44,7 @@ TabPanel.propTypes = {
 function RightSB({value,menuname}) {
   return (
     <div className={styles.container}>
-      <NavBar/>
+    
       {menuname === "AllPosts" && (<AllPosts/>)  }
       {menuname === "AddNewPost" && (<AddPost/>)  }
       {menuname === "Categories" && (<PostsCats/>)  }

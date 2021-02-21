@@ -2,6 +2,9 @@
 	position:reletive;
    	
 }
+.mainContainer{
+    width:900px !important;
+}
 .postEditd{
 	position:absolute;
 

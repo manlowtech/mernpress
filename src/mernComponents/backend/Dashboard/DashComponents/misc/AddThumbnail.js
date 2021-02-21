@@ -6,17 +6,19 @@ function AddThumbnail({onDrop}) {
  
     return (
         <div>
-            <Dropzone onDrop={onDrop}>
+          <form>
+            <Dropzone onDrop={onDrop} multiple={false}>
   {({getRootProps, getInputProps}) => (
     <section className={styles.AddThumbnail}>
       <div {...getRootProps()}>
-        <input {...getInputProps()} />
+        <input name="post_thumbnail" {...getInputProps()} />
         <p className={styles.PlusOne}><PlusOne/></p>
         <span>AddThumbnail</span>
       </div>
     </section>
   )}
 </Dropzone>
+</form>
         </div>
     )
 }
