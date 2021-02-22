@@ -1,5 +1,13 @@
 import axios from 'axios';
+export const getWidgetMenus = async()=>{
+    const menus = await axios.get('/menu/widgetmenus');
+    return menus.data.clientMenus;
 
+}
+export const updateWidgetMenus =async(menuobj)=>{
+    const update = await axios.put('/menu/update/:menu_id',menuobj);
+    return update.data.data;
+}
 export const addMenuPage = async (name,slug,component,role="dashboardmenupage")=>{
 const url = '/menu/addmenupage';
 const variables = {
@@ -10,7 +18,7 @@ const variables = {
 
 }
 const page = await axios.post(url,variables);
-return page;
+return page.data.data;
 }
 
 export const addSubMenuPage = async (parent,name,slug,component,role="submenupage")=>{
@@ -24,14 +32,14 @@ export const addSubMenuPage = async (parent,name,slug,component,role="submenupag
     
     }
     const page = await axios.post(url,variables);
-    return page;
+    return page.data.data;
 }
 
 export const getMenuPages = async ()=>{
     const url = '/menu/alldashboardmenupages';
     const data = await axios.get(url);
     console.log(data.data);
-    return data.data;
+    return data.data.adninMenus;
 }
 
 export const deleteMenuPages = async (id)=>{

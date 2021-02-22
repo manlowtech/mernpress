@@ -29,11 +29,11 @@ const PostTable = ()=> Datas.map((post,i)=>(
         <TableCell>{post.id}</TableCell>
         <TableCell>{post.title}</TableCell>
         <TableCell>{post.post_content}</TableCell>
-        <TableCell></TableCell>
-        <TableCell></TableCell>
-        <TableCell></TableCell>
-        <TableCell>{post.author}</TableCell>
-        <TableCell>{post.createdAt}</TableCell>
+        <TableCell align="right"></TableCell>
+        <TableCell align="right"></TableCell>
+        <TableCell align="right"></TableCell>
+        <TableCell align="right">{post.author}</TableCell>
+        <TableCell align="right">{post.createdAt}</TableCell>
     </TableRow>
     </div>
  ));
@@ -47,11 +47,11 @@ const PostTable = ()=> Datas.map((post,i)=>(
                       <TableCell>ID</TableCell>
                       <TableCell>Title</TableCell>
                       <TableCell>Description</TableCell>
-                      <TableCell>Categoy</TableCell>
-                      <TableCell>Tags</TableCell>
-                      <TableCell>Media</TableCell>
-                      <TableCell>Aurthor</TableCell>
-                      <TableCell>Date</TableCell>
+                      <TableCell align="right">Categoy</TableCell>
+                      <TableCell align="right">Tags</TableCell>
+                      <TableCell align="right">Media</TableCell>
+                      <TableCell align="right">Aurthor</TableCell>
+                      <TableCell align="right">Date</TableCell>
                   </TableRow>
                   <Divider/>
               </TableHead>

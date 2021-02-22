@@ -50,15 +50,15 @@ function MediaModal() {
   const [value, setValue] = useState(0);
   const [open, setOpen] = useState(false);
   const onDrop = (files) => {
-    console.log(files);
-    let formData = new formData();
+    console.log(files[0]);
+    let formData = new FormData();
     const config ={
-      headers: {
+      header: {
         'content-type':'multipart/form-data',
       }//end headers
     }//end config
     formData.append('post_thumbnail',files[0]);
-    axios.post('/posts/uploadImage',formData,config).then(response=>{
+    axios.post('/posts/uploadImage', formData,config).then(response=>{
       if(response.data.success){
         alert('image uploades successfully');
         console.log(response.data);

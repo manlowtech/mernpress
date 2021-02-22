@@ -60,6 +60,7 @@ module.exports = {
                 if (ext !== '.jpg' || ext !== '.png' || ext !== '.jpeg') {
                     return cb(res.status(400).end('only images allowed'), false);
                 }
+                cb(null,true);
             }
         });
         var upload = multer({ storage: storage }).single('post_thumbnail');

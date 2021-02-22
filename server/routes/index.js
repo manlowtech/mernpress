@@ -5,6 +5,24 @@ const Menus = require('../controllers').Menus;
 const UsersCont = require('../controllers').Users;
 module.exports = (app) => {
   
+
+    //===ADDDONNNS====//
+    app.get('/addon/getalladdons',configs.findAllAddons);
+    app.post('/addon/createaddon',configs.createAddon);
+    app.put('/addon/activate/:addon_id',configs.ActivateAddon);
+    app.put('/addon/deactivate/:addon_id',configs.deactivateAddon);
+
+//====GET MENU PAGES ======
+app.get('/menu/widgetmenus',Menus.findWidgetMenus);
+app.put('/menu/update/:menu_id',Menus.updateWidgetMenus);
+
+    //MENUS APIS HERE
+    app.get('/menu/alldashboardmenupages', Menus.findAllMenus);
+    //ADDMENU PAGE
+    app.post('/menu/addmenupage', Menus.create);
+    app.post('/menu/addsubmenupage', Menus.create);
+
+
     //Activate THEME
     app.post('/themes/activate',configs.Activatetheme);
 //=== GET AN ACTIVE THEME FROM DB =====.>//
@@ -34,11 +52,5 @@ app.get('/themes/getactivetheme',configs.findActiveTheme);
     app.post('/themes/init', configs.create);
     //get all themes
     app.get('/themes/allthemes', configs.findAll);
-
-    //MENUS APIS HERE
-    app.get('/menu/alldashboardmenupages', Menus.findAllMenus);
-    //ADDMENU PAGE
-    app.post('/menu/addmenupage', Menus.create);
-    app.post('/menu/addsubmenupage', Menus.create);
 
 }
