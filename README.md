@@ -16,6 +16,9 @@ MernPress comes in two formats for:--
  2. For Web-Building ,Download this repository and install the dependencies 
   a. OR on a live servers like Heroku
 
+##Documentation
+- Documentation website building still in progress.
+
   ## Usage
   To build a website download and install Mernpress Themes and Addons from the Admin Dashboard and Happy Blogging
 
@@ -42,8 +45,17 @@ MernPress comes in two formats for:--
  facebook: facebook.com/ManlowCharumbira
  Instagram: instagram.com/realManlow 
 
+## Tools Used
+look into package.json in server and clinet folders
+
+
  ## Authors
  ```bash
  Manlow Charumbira
  ```
+ ## Keywords
+ - cms
+ - mernpress
+ - content management system
+ - react,mysql,sequelize
 
