@@ -1,0 +1,19 @@
+.NavContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.leftNav{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.rightNav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+}
+.mp{
+    padding:9px;
+}

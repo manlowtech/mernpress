@@ -1,0 +1,9 @@
+.AddThumbnail{
+    border: 2px solid gray;
+    border-radius: 7px;
+}
+.PlusOne{
+    font-size: 20px;
+    font-weight: 900;
+    padding: 15px;
+}

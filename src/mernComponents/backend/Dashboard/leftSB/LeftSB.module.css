@@ -1,0 +1,6 @@
+.container{
+    width: 250px;
+    font-size:3.5rem;
+    padding: 2rem;
+    overflow: auto;
+}

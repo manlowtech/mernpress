@@ -1,0 +1,22 @@
+.allPostsContainer{
+	position:reletive;
+   	
+}
+.mainContainer{
+    width:900px !important;
+}
+.postEditd{
+	position:absolute;
+
+    display:none;
+    font-size:small;
+    font-weight:100;
+}
+
+.allPostsContainer:hover .postEditd{
+	display:block;
+}
+.small{
+    font-size:20px;
+    
+}

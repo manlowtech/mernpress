@@ -1,0 +1,25 @@
+
+
+.regisContainer{
+    display:flex;
+    background-color: beige;
+    justify-content:center;
+    align-items:center;
+   
+    padding:.6rem;
+    height:100vh;
+    width:100%;
+}
+.regis{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background-color: lightgray;
+    padding : 50px;
+    border-radius: 5px;
+}
+.pt{
+   
+    margin-top: 10px !important;
+}

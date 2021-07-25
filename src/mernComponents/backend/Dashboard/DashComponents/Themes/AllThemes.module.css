@@ -1,0 +1,19 @@
+
+
+.preactBtn{
+    display:flex;
+    justify-content: space-around;
+    align-items:center
+}
+.coverImg{
+    widows: 200px;
+    height:200px;
+    object-fit:cover;
+}
+.gridItems{
+    width:250;
+    height:250;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin:10px;
+}
