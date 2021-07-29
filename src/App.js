@@ -8,6 +8,8 @@ import Hello from './mernComponents/backend/Dashboard/NavBar';
 import LoginPage from './mernComponents/auth/LoginPage';
 import RegisterPage from './mernComponents/auth/RegisterPage';
 import { PrivateRoute } from './mernComponents/backend/redux/components/PrivateRoute';
+import {convertFromRaw} from 'draft-js'
+import {Editor} from 'react-draft-wysiwyg'
 function App() {
     const [ActiveTheme, SetActiveTheme] = useState();
     const ThemeActiveComponent = lazy(() => import(`./Themes/${ActiveTheme}/App`));
@@ -37,7 +39,6 @@ function App() {
 
     return (
         <div>
-            {console.log(ActiveTheme)}
             <Router>
                 <Suspense fallback={<div>Page is Loading...</div>}>
                     <Switch>
@@ -48,7 +49,7 @@ function App() {
                         <Route exact path="/login" component={LoginPage} />
                         <Route exact path="/register">  <RegisterPage /></Route>
                         <Route exact path="*" render={()=><>
-                        <div>PAGE NOT FOUND........</div>
+                        <div><Editor/></div>
                         </>} />
                     </Switch>
                 </Suspense>

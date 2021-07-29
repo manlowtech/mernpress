@@ -5,7 +5,7 @@ You Can install Themes and Addons To build your website.
 
 ## Installation
 MernPress comes in two formats for:-- 
- 1. for Theme and Addons Developers. npx -p npm@6 npm install
+ 1. for Theme and Addons Developers. npx -p npm@14 npm install
 
  
 ```bash
