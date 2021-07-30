@@ -51,14 +51,22 @@ function MediaModal() {
   const [open, setOpen] = useState(false);
   const onDrop = (files) => {
     console.log(files[0]);
-    let formData = new FormData();
+    let photo = new FormData();
     const config ={
       header: {
         'content-type':'multipart/form-data',
       }//end headers
     }//end config
-    formData.append('post_thumbnail',files[0]);
-    axios.post('/posts/uploadImage', formData,config).then(response=>{
+    photo.append('post_thumbnail',files[0]);
+    photo.append('vuezRealManlow',"MarkAnthony")
+    console.log(`formRealData ==== ${photo}`)
+    console.log(photo.append('post_thumbnail',files[0]))
+    const varss = {
+      photo0:"helllooooo"
+    }
+    axios.post('/posts/uploadimage',varss )
+    /*
+      .then(response=>{
       if(response.data.success){
         alert('image uploades successfully');
         console.log(response.data);
@@ -66,6 +74,7 @@ function MediaModal() {
         alert('there was an error uploading your image');
       }
     });
+    */
   }
 
   const handleChange = (event, newValue) => {

@@ -1,0 +1,28 @@
+.NavContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid black;
+    width: 100%;
+}
+.leftNav{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.rightNav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 15px;
+}
+.mp{
+    padding:9px;
+}
+.Dashboard{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 87vh;
+    margin-top: .5em;
+}

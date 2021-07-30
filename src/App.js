@@ -10,6 +10,7 @@ import RegisterPage from './mernComponents/auth/RegisterPage';
 import { PrivateRoute } from './mernComponents/backend/redux/components/PrivateRoute';
 import {convertFromRaw} from 'draft-js'
 import {Editor} from 'react-draft-wysiwyg'
+//import Uploader from './Uploader'
 function App() {
     const [ActiveTheme, SetActiveTheme] = useState();
     const ThemeActiveComponent = lazy(() => import(`./Themes/${ActiveTheme}/App`));
@@ -47,6 +48,7 @@ function App() {
                         <PrivateRoute exact path="/hello" component={Hello} />
                         <PrivateRoute exact path="/admin/post/update/:post_id" component={PostEdit} />
                         <Route exact path="/login" component={LoginPage} />
+                        <Route exact path="/logs" component={LoginPage} />
                         <Route exact path="/register">  <RegisterPage /></Route>
                         <Route exact path="*" render={()=><>
                         <div><Editor/></div>

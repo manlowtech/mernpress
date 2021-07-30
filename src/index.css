@@ -7,3 +7,18 @@
   cursor : pointer;
   
 }
+
+
+.left__part{
+  background-color:red;
+  flex: .2;
+  height: 90vh;
+  overflow-y: scroll
+}
+
+.right__part{
+  background-color:yellow;
+  flex: .8;
+  height: 90vh;
+  overflow-y: scroll;
+}
