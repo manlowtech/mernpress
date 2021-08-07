@@ -4,6 +4,8 @@ import styles from './AddPost.module.css';
 import {TextField,List,ListItem,Button,Snackbar} from '@material-ui/core';
 import CatSelect from './catselect/CatSelect';
 //const AddThumbnail = 'AddThumbnail';
+import {convertFromRaw} from 'draft-js'
+import {Editor} from 'react-draft-wysiwyg'
 import MediaModal from '../misc/mediaModal/MediaModal' ;
 function AddPost() {
     const [success,setSuccess] = useState(false);
@@ -45,6 +47,7 @@ function AddPost() {
     }
     return (
         <div className={styles.container}>
+        
         <div className={styles.leftpost}>
         {success && (successMsg)}
         {Post}

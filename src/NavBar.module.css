@@ -26,3 +26,29 @@
     height: 87vh;
     margin-top: .5em;
 }
+.wrappers_class{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;align-items: center;
+}
+.wrapperName{
+    color: black;
+    font-weight: bold;
+    border-bottom: 1px solid lightgray;
+}
+.sbm_container{
+    padding-left: 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration:none;
+    list-style-type: none;
+    color: lightgray;
+    font-weight: 800;
+
+}
+.sbm__container__item{
+    text-decoration: none;
+    color: lightgoldenrodyellow;
+}

@@ -10,6 +10,8 @@ import RegisterPage from './mernComponents/auth/RegisterPage';
 import { PrivateRoute } from './mernComponents/backend/redux/components/PrivateRoute';
 import {convertFromRaw} from 'draft-js'
 import {Editor} from 'react-draft-wysiwyg'
+import {Link} from 'react-router-dom'
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 //import Uploader from './Uploader'
 function App() {
     const [ActiveTheme, SetActiveTheme] = useState();

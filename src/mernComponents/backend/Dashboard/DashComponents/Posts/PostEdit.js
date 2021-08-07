@@ -1,11 +1,13 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
-import styles from './AddPost.module.css';
+import {convertFromRaw} from 'draft-js'
+import {Editor} from 'react-draft-wysiwyg'
 import {TextField,List,ListItem,Button,Snackbar,Skeleton} from '@material-ui/core';
 import CatSelect from './catselect/CatSelect';
 //const AddThumbnail = 'AddThumbnail';
 import MediaModal from '../misc/mediaModal/MediaModal' ;
 //import Media from './SkeletonCard';
+import styles from './AddPost.module.css';
 function PostEdit(props) {
     const [success,setSuccess] = useState(false);
     const [title,setTitle] = useState('');
@@ -40,6 +42,8 @@ function PostEdit(props) {
         console.log(catname);
         setCategory(catname);
     }
+    //const handleDescChange
+
     const handleClose = ()=>{
         setSuccess(false);
     }
@@ -85,7 +89,7 @@ function PostEdit(props) {
          label= "Add Description"
          placeholder = "enter description here..."
          value={description}
-         onChange={e=>setDescription(...description,e.target.value)}
+         onChange={e=>setDescription(e.target.value)}
          />
       <Button disabled={!title || !description} onClick={handlePostSubmit} color="secondary" variant="contained">Submit Post</Button>
       </div>
