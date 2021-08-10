@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
-import {convertFromRaw} from 'draft-js'
-import {Editor} from 'react-draft-wysiwyg'
+import {EditorState,convertFromRaw,convertToRaw} from 'draft-js'
+import Editor from './MernEditor'
 import {TextField,List,ListItem,Button,Snackbar,Skeleton} from '@material-ui/core';
 import CatSelect from './catselect/CatSelect';
 //const AddThumbnail = 'AddThumbnail';
@@ -13,9 +13,10 @@ function PostEdit(props) {
     const [title,setTitle] = useState('');
     const [category,setCategory] = useState('Uncategorized');
     const [Post,setPost] = useState([]);
-    const [description,setDescription] = useState('');
+    const [content,setContent] = useState('')
+    const [editorState,setEditorState] = useState(()=>EditorState.createWithContent(JSON.parse(convertFromRaw(content))));
     const handleInputChange = (e)=>{
-        setTitle(...title,e.target.value);
+        setTitle(e.target.value);
         
     }
     useEffect(()=>{
@@ -29,7 +30,7 @@ function PostEdit(props) {
  setTitle( posts.data.post.title );
  //setTitle( posts.data.post.post_content );
  setCategory( posts.data.post.post_category );
- setDescription( posts.data.post.post_content );
+ setContent( posts.data.post.post_content );
        console.log( posts.data.post.post_content );
        console.log(post_id);
 
@@ -56,7 +57,7 @@ function PostEdit(props) {
         const post_id = props.match.params.post_id;
         e.preventDefault();
         const variable = {
-            post_content : description,
+            post_content : JSON.stringify(convertToRaw(editorState.getCurrentContent())),
             title : title,
             post_type : "post",
             category:category,
@@ -65,13 +66,12 @@ function PostEdit(props) {
             .then(res=> console.log(res));
             setSuccess(true);
             setTitle('');
-            setDescription('');
             setPost([]);
 
     }
     return (
         <div className={styles.container}>
-      {description ?
+      {title ?
       <div>
       <div className={styles.leftpost}>
       {success && (successMsg)}
@@ -83,15 +83,11 @@ function PostEdit(props) {
          value={title}
          onChange={handleInputChange}
          />
-         <TextField 
-         multiline
-         rows ={5}
-         label= "Add Description"
-         placeholder = "enter description here..."
-         value={description}
-         onChange={e=>setDescription(e.target.value)}
+         <Editor 
+         EditorState={editorState}
+         onEditorStateChange={(editorState=>setEditorState(editorState))}
          />
-      <Button disabled={!title || !description} onClick={handlePostSubmit} color="secondary" variant="contained">Submit Post</Button>
+      <Button disabled={!title || !editorState} onClick={handlePostSubmit} color="secondary" variant="contained">Submit Post</Button>
       </div>
 
 <div className={styles.rightPane}>

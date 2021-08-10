@@ -3,16 +3,17 @@ import axios from 'axios';
 import styles from './AddPost.module.css';
 import {TextField,List,ListItem,Button,Snackbar} from '@material-ui/core';
 import CatSelect from './catselect/CatSelect';
-//const AddThumbnail = 'AddThumbnail';
-import {convertFromRaw} from 'draft-js'
-import {Editor} from 'react-draft-wysiwyg'
+import {EditorState} from 'draft-js'
+import {convertToRaw} from 'draft-js'
+import Editor from './MernEditor'
 import MediaModal from '../misc/mediaModal/MediaModal' ;
 function AddPost() {
     const [success,setSuccess] = useState(false);
+    
     const [title,setTitle] = useState('');
     const [category,setCategory] = useState('Uncategorized');
     const [Post,setPost] = useState([]);
-    const [description,setDescription] = useState('');
+    const [editorState,setEditorState] = useState(()=>EditorState.createEmpty());
     const handleInputChange = (e)=>{
         setTitle(e.target.value);
         
@@ -32,7 +33,7 @@ function AddPost() {
     const handlePostSubmit = async (e)=>{
         e.preventDefault();
         const variable = {
-            post_content : description,
+             post_content : JSON.stringify(convertToRaw(editorState.getCurrentContent())),
             title : title,
             post_type : "post",
             category:category,
@@ -41,7 +42,6 @@ function AddPost() {
             .then(res=> console.log(res));
             setSuccess(true);
             setTitle('');
-            setDescription('');
             setPost([]);
 
     }
@@ -58,15 +58,12 @@ function AddPost() {
            value={title}
            onChange={handleInputChange}
            />
-           <TextField 
-           multiline
-           rows ={5}
-           label= "Add Description"
-           placeholder = "enter description here..."
-           value={description}
-           onChange={e=>setDescription(e.target.value)}
-           />
-        <Button disabled={!title || !description} onClick={handlePostSubmit} color="secondary" variant="contained">Submit Post</Button>
+           <Editor
+             EditorState={editorState}
+             wrapperClassName="editor"
+             onEditorStateChange={editorState=>setEditorState(editorState)}
+            />
+        <Button disabled={!title || !editorState} onClick={handlePostSubmit} color="secondary" variant="contained">Submit Post</Button>
         </div>
 
 

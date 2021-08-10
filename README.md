@@ -1,6 +1,7 @@
 # MernPress
 The world have progressed and new technologies are emerging AND WE ARE Happy to Introduce MernPress. 
 MernPress is a content management system developed using node,reactjs and mysql.
+MernPress also supports other view engines like pug, handlebars and in addition to reactjs Mernpress also supports vuejs
 You Can install Themes and Addons To build your website.
 
 ## Installation
@@ -10,7 +11,7 @@ MernPress comes in two formats for:--
  
 ```bash
  
- npm i mernpress
+ npx create-mernpress your-appName
 
 ```
  2. For Web-Building ,Download this repository and install the dependencies 
@@ -27,6 +28,7 @@ MernPress comes in two formats for:--
    1. Mysql
    2. Postgres
    3. Sqllite and etc (sql Databases);
+   4. MongoDB
 
    ## Future Supports
    1. we are working on providing supports for All SQL and NoSQL databases 
@@ -43,7 +45,7 @@ MernPress comes in two formats for:--
  http://twitter.com/realManlow (@realManlow)
  email : Charumbiramanlow20@gmail.com
  Whatsapp: +263773466252
- facebook: facebook.com/ManlowCharumbira
+ facebook: facebook.com/realManlow
  Instagram: instagram.com/realManlow 
 
 ## Tools Used
