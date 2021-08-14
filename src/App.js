@@ -8,10 +8,9 @@ import Hello from './mernComponents/backend/Dashboard/NavBar';
 import LoginPage from './mernComponents/auth/LoginPage';
 import RegisterPage from './mernComponents/auth/RegisterPage';
 import { PrivateRoute } from './mernComponents/backend/redux/components/PrivateRoute';
-import {convertFromRaw} from 'draft-js'
 import {Editor} from 'react-draft-wysiwyg'
-import {Link} from 'react-router-dom'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
+import AdminTemplate from './mernmodules/components/AdminTemplate'
 //import Uploader from './Uploader'
 function App() {
     const [ActiveTheme, SetActiveTheme] = useState();
@@ -50,7 +49,7 @@ function App() {
                         <PrivateRoute exact path="/hello" component={Hello} />
                         <PrivateRoute exact path="/admin/post/update/:post_id" component={PostEdit} />
                         <Route exact path="/login" component={LoginPage} />
-                        <Route exact path="/logs" component={LoginPage} />
+                        <Route exact path="/logs" component={AdminTemplate} />
                         <Route exact path="/register">  <RegisterPage /></Route>
                         <Route exact path="*" render={()=><>
                         <div><Editor/></div>

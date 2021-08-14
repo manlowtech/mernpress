@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 import {EditorState,convertFromRaw,convertToRaw} from 'draft-js'
 import Editor from './MernEditor'
-import {TextField,List,ListItem,Button,Snackbar,Skeleton} from '@material-ui/core';
+import {TextField,List,ListItem,Button,Snackbar} from '@material-ui/core';
 import CatSelect from './catselect/CatSelect';
 //const AddThumbnail = 'AddThumbnail';
 import MediaModal from '../misc/mediaModal/MediaModal' ;
@@ -14,7 +14,7 @@ function PostEdit(props) {
     const [category,setCategory] = useState('Uncategorized');
     const [Post,setPost] = useState([]);
     const [content,setContent] = useState('')
-    const [editorState,setEditorState] = useState(()=>EditorState.createWithContent(JSON.parse(convertFromRaw(content))));
+    const [editorState,setEditorState] = useState();
     const handleInputChange = (e)=>{
         setTitle(e.target.value);
         
@@ -30,7 +30,10 @@ function PostEdit(props) {
  setTitle( posts.data.post.title );
  //setTitle( posts.data.post.post_content );
  setCategory( posts.data.post.post_category );
- setContent( posts.data.post.post_content );
+ //setContent( );
+ console.log(posts.data.post.post_content)
+ setEditorState(posts.data.post.post_content ? EditorState.createWithContent(convertFromRaw(JSON.parse(posts.data.post.post_content))) : EditorState.createEmpty())
+ 
        console.log( posts.data.post.post_content );
        console.log(post_id);
 
@@ -83,10 +86,14 @@ function PostEdit(props) {
          value={title}
          onChange={handleInputChange}
          />
+         {
+             content &&
+
          <Editor 
          EditorState={editorState}
          onEditorStateChange={(editorState=>setEditorState(editorState))}
          />
+         }
       <Button disabled={!title || !editorState} onClick={handlePostSubmit} color="secondary" variant="contained">Submit Post</Button>
       </div>
 
