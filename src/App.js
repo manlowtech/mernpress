@@ -1,8 +1,7 @@
 import React, { useEffect, useState, lazy, Suspense } from 'react'
 import Dashboard from './mernComponents/backend/Dashboard/Dashboard';
 import PostEdit from './mernComponents/backend/Dashboard/DashComponents/Posts/PostEdit';
-import { ThemeInit, getActiveTheme } from './mernmodules/ConfigsInit';
-import { getMenuPages } from './mernmodules/DashMenuPages';
+import { ThemeInit, getActiveTheme,getMenuPages } from './mernmodules';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Hello from './mernComponents/backend/Dashboard/NavBar';
 import LoginPage from './mernComponents/auth/LoginPage';
@@ -10,18 +9,21 @@ import RegisterPage from './mernComponents/auth/RegisterPage';
 import { PrivateRoute } from './mernComponents/backend/redux/components/PrivateRoute';
 import {Editor} from 'react-draft-wysiwyg'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
-import AdminTemplate from './mernmodules/components/AdminTemplate'
-//import Uploader from './Uploader'
+import Vue from 'vue'
+import {VuePlugin} from 'vuera'
+Vue.use(VuePlugin)
 function App() {
     const [ActiveTheme, SetActiveTheme] = useState();
     const ThemeActiveComponent = lazy(() => import(`./Themes/${ActiveTheme}/App`));
     const [NoneActive, setNonActive] = useState(false);
     useEffect(() => {
         const Menus = async () => {
+            //to transfer
             const data = await getMenuPages();
             console.log(data);
         }
         const InitFunc = async () => {
+            //to transfer
             await ThemeInit();
         }
         //Get Active Theme
@@ -49,7 +51,6 @@ function App() {
                         <PrivateRoute exact path="/hello" component={Hello} />
                         <PrivateRoute exact path="/admin/post/update/:post_id" component={PostEdit} />
                         <Route exact path="/login" component={LoginPage} />
-                        <Route exact path="/logs" component={AdminTemplate} />
                         <Route exact path="/register">  <RegisterPage /></Route>
                         <Route exact path="*" render={()=><>
                         <div><Editor/></div>

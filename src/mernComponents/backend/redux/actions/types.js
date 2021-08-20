@@ -8,6 +8,7 @@ export const userConstants = {
     LOGIN_FAILURE: 'USERS_LOGIN_FAILURE',
 
     LOGOUT: 'USERS_LOGOUT',
+    MENU_PAGE: 'MENU_PAGE',
 
     GETALL_REQUEST: 'USERS_GETALL_REQUEST',
     GETALL_SUCCESS: 'USERS_GETALL_SUCCESS',
@@ -21,5 +22,5 @@ export const userConstants = {
 export const alertConstants = {
     SUCCESS: 'ALERT_SUCCESS',
     ERROR: 'ALERT_ERROR',
-    CLEAR: 'ALERT_CLEAR'
+    CLEAR: 'ALERT_CLEAR',
 };

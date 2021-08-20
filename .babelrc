@@ -1,0 +1,7 @@
+{
+    "presets":"react",
+    "plugins":["vuera/babel", 
+               "transform-react-pug",
+               "transform-react-jsx"
+              ]
+}

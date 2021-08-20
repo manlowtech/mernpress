@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import {TextField,Button} from '@material-ui/core';
 //import axios from 'axios';
 import styles from './login.module.css';
-import {Redirect,Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {useHistory} from 'react-router-dom';
 //import {Login} from '../../mernmodules/Login';
 import { useDispatch,useSelector} from 'react-redux';

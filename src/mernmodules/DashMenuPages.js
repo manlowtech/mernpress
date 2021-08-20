@@ -15,16 +15,17 @@ const variables = {
     slug :slug,
     component:component,
     role:role,
+    parent_slug:"iam"
 
 }
 const page = await axios.post(url,variables);
 return page.data.data;
 }
 
-export const addSubMenuPage = async (parent,name,slug,component,role="submenupage")=>{
+export const addSubMenuPage = async (parent_slug,name,slug,component,role="submenupage")=>{
     const url = '/menu/addsubmenupage';
     const variables = {
-        parent:parent,
+        parent:parent_slug,
         name : name,
         slug :slug,
         component:component,
@@ -39,7 +40,7 @@ export const getMenuPages = async ()=>{
     const url = '/menu/alldashboardmenupages';
     const data = await axios.get(url);
     console.log(data.data);
-    return data.data.adninMenus;
+    return data.data.adminMenus;
 }
 
 export const deleteMenuPages = async (id)=>{

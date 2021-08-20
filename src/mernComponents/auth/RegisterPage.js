@@ -65,7 +65,7 @@ function RegisterPage() {
             value={verifyPass}
             onChange={e=>setVerifyPass(e.target.value)}
             />
-           <Button  className={styles.pt} disabled={!name || !username || !email || (password !== verifyPass)} color="secondary" variant="contained" onClick={handleFormSubmit} >Register Now! </Button>
+           <Button  className={styles.pt} disabled={!name || !username || !email || password !== verifyPass} color="secondary" variant="contained" onClick={handleFormSubmit} >Register Now! </Button>
 
            <p>Already Have an Account ? <Link to="/login">Login</Link></p>
            </form>

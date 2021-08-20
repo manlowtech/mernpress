@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{lazy} from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -41,29 +41,25 @@ TabPanel.propTypes = {
 
 
 
-function RightSB({value,menuname}) {
+function RightSB({menuname,admin}) {
+  const RenderComp = ()=>{
+    admin.filter(file=>file.slug === menuname).forEach(el => {
+      const RenderC = lazy(()=>import(`../../../../${el.component}`))
+      return <RenderC/>
+    });
+  }
   return (
     <div className={styles.container}>
-    
-      {menuname === "AllPosts" && (<AllPosts/>)  }
-      {menuname === "AddNewPost" && (<AddPost/>)  }
-      {menuname === "Categories" && (<PostsCats/>)  }
-      {menuname === "AddNewPage" && (<AddPages/>)  }
-      {menuname === "AllPages" && (<AllPages/>)  }
-      {menuname === "AllThemes" && (<AllThemes/>)  }
-      
-      <TabPanel value={value} index={3}>
-      <AddPost/>
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        Item Five
-      </TabPanel>
-      <TabPanel value={value} index={5}>
-        Item Six
-      </TabPanel>
-      <TabPanel value={value} index={6}>
-        Item Seven
-      </TabPanel>
+    {menuname === "AddNewPost" && <AddPost/>}
+    {menuname === "Categories" && <PostsCats/>}
+    {menuname === "Tags" && <AddPost/>}
+    {menuname === "AllPosts" && <AllPosts/>}
+    {menuname === "Posts" && <AllPosts/>}
+    {menuname === "AllPages" && <AllPages/>}
+    {menuname === "AddNewPage" && <AddPages/>}
+    {menuname === "AllThemes" && <AllThemes/>}
+    {menuname === "Pages" && <AllPages/>}
+    <RenderComp/>
     </div>
   )
 }

@@ -1,24 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import LeftSB from './leftSB/LeftSB';
 import RightSB from './rightSB/RightSB';
 import styles from './Dashboard.module.css';
-import InboxIcon from '@material-ui/icons/Inbox';
-import MailIcon from '@material-ui/icons/Mail';
-import ContactsIcon from '@material-ui/icons/Contacts';
-import ContactMailIcon from '@material-ui/icons/ContactMail';
+import {InboxIcon,ContactMailIcon,ContactsIcon,MailIcon} from '@material-ui/icons/Inbox';
+import {getMenuPages} from '../../../mernmodules'
 import NavBar from './NavBar';
-function Dashboard() {
+function Dashboard({match}) {
   const [value, setValue] = useState(0);
   const [Menu, setMenu] = useState(0);
+  const [Admin, setAdmin] = useState([]);
 const [items, setItems] = useState([
     {
       name: 'Posts',
       Icon: InboxIcon,
       expanded: false,
       children: [
-        { name: 'AllPosts', Icon: MailIcon },
+        { name: 'AllPosts', Icon: ContactsIcon },
         { name: 'AddNewPost', Icon: MailIcon },
-        { name: 'Categories', Icon: MailIcon },
+        { name: 'Categories', Icon: ContactMailIcon },
         { name: 'Tags', Icon: MailIcon },
       ]
     },
@@ -40,52 +39,14 @@ const [items, setItems] = useState([
         { name: 'Install New Theme', Icon: MailIcon }
       ]
     },
-    {
-      name: 'Settings',
-      Icon: InboxIcon,
-      expanded: false,
-      children: [
-        { name: 'All Posts', Icon: MailIcon },
-        { name: 'Add New Post', Icon: MailIcon }
-      ]
-    },
-    {
-      name: 'Tools',
-      Icon: InboxIcon,
-      expanded: false,
-      children: [
-        { name: 'All Posts', Icon: MailIcon },
-        { name: 'Add New Post', Icon: MailIcon }
-      ]
-    },
-    {
-      name: 'Plugin exaple',
-      Icon: InboxIcon,
-      expanded: false,
-      children: [
-        { name: 'All Posts', Icon: MailIcon },
-        { name: 'Add New Post', Icon: MailIcon }
-      ]
-    },
-    {
-      name: 'Theme Example',
-      Icon: InboxIcon,
-      expanded: false,
-      children: [
-        { name: 'All Posts', Icon: MailIcon },
-        { name: 'Add New Post', Icon: MailIcon }
-      ]
-    },
-    {
-      name: 'Addons',
-      Icon: ContactsIcon,
-      expanded: false,
-      children: [
-        { name: 'All Addons', Icon: ContactMailIcon },
-        { name: 'Add New', Icon: ContactMailIcon }
-      ]
-    }
   ]);
+  useEffect(() => {
+    const getDatas = async()=> {
+      const data = await getMenuPages()
+      setAdmin(data)
+    }
+    getDatas()
+  }, [])
 
   const onClick = index => () => {
     const newItems = [...items];
@@ -103,10 +64,10 @@ const [items, setItems] = useState([
       <NavBar/>
     <div className={styles.container}>
       <div className={styles.leftBar}>
-        <LeftSB onClickItem={onClickItem} items={items} onClick={onClick} value={value} />
+        <LeftSB onClickItem={onClickItem} admin={Admin} items={items} onClick={onClick} value={value} />
       </div>
       <div className={styles.rightbar}>
-        <RightSB value={value} menuname={Menu}/>
+        <RightSB  admin={Admin} menuname={Menu}/>
       </div>
     </div>
     </div>
