@@ -1,17 +1,23 @@
 import React, { useEffect, useState, lazy, Suspense } from 'react'
-import Dashboard from './mernComponents/backend/Dashboard/Dashboard';
-import PostEdit from './mernComponents/backend/Dashboard/DashComponents/Posts/PostEdit';
+import {createBrowserHistory} from 'history'
+const Dashboard = lazy(()=>import('./mernComponents/backend/Dashboard/Dashboard'))
+const PostEdit = lazy(()=>import('./mernComponents/backend/Dashboard/DashComponents/Posts/PostEdit'))
+const LoginPage = lazy(()=>import('./mernComponents/auth/LoginPage'))
+const RegisterPage = lazy(()=>import('./mernComponents/auth/RegisterPage'))
+//import Dashboard from './mernComponents/backend/Dashboard/Dashboard';
+//import PostEdit from './mernComponents/backend/Dashboard/DashComponents/Posts/PostEdit';
 import { ThemeInit, getActiveTheme,getMenuPages } from './mernmodules';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Hello from './mernComponents/backend/Dashboard/NavBar';
-import LoginPage from './mernComponents/auth/LoginPage';
-import RegisterPage from './mernComponents/auth/RegisterPage';
+//import Hello from './mernComponents/backend/Dashboard/NavBar';
+//import LoginPage from './mernComponents/auth/LoginPage';
+//import RegisterPage from './mernComponents/auth/RegisterPage';
 import { PrivateRoute } from './mernComponents/backend/redux/components/PrivateRoute';
-import {Editor} from 'react-draft-wysiwyg'
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
+//import {Editor} from 'react-draft-wysiwyg'
+//import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import Vue from 'vue'
 import {VuePlugin} from 'vuera'
 Vue.use(VuePlugin)
+const history = createBrowserHistory()
 function App() {
     const [ActiveTheme, SetActiveTheme] = useState();
     const ThemeActiveComponent = lazy(() => import(`./Themes/${ActiveTheme}/App`));
@@ -43,7 +49,7 @@ function App() {
 
     return (
         <div>
-            <Router>
+            <Router history={history} >
                 <Suspense fallback={<div>Page is Loading...</div>}>
                     <Switch>
                         <Route exact path="/admin/:menu_slug">  <Dashboard /></Route>
@@ -53,7 +59,7 @@ function App() {
                         <Route exact path="/login" component={LoginPage} />
                         <Route exact path="/register">  <RegisterPage /></Route>
                         <Route exact path="*" render={()=><>
-                        <div><Editor/></div>
+                        <div>Loading as for now</div>
                         </>} />
                     </Switch>
                 </Suspense>

@@ -58,13 +58,10 @@ function MediaModal() {
       }//end headers
     }//end config
     photo.append('post_thumbnail',files[0]);
-    photo.append('vuezRealManlow',"MarkAnthony")
-    console.log(`formRealData ==== ${photo}`)
-    console.log(photo.append('post_thumbnail',files[0]))
     const varss = {
       photo0:"helllooooo"
     }
-    axios.post('/posts/uploadimage',varss )
+    axios.post('/posts/uploadimage',photo.get("post_thumbnail"),config )
     /*
       .then(response=>{
       if(response.data.success){

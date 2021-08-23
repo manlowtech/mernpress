@@ -1,0 +1,28 @@
+{
+  "name": "mernmodules",
+  "version": "2021.2.0",
+  "description": "This is mernpressModules Package, for all functionalities of mernpress content management system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/manlowtech/mernmodules.git"
+  },
+  "keywords": [
+    "Content",
+    "Management-System",
+    "Mernpress",
+    "mernstack",
+    "CMS",
+    "Blog",
+    "E-Shop"
+  ],
+  "author": "Manlow Charumbira aka RealManlow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manlowtech/mernmodules/issues"
+  },
+  "homepage": "https://github.com/manlowtech/mernmodules#readme"
+}
