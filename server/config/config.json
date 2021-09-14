@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
+    "username": "mernpress",
     "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "database": "mernpress",
+    "host": "db4free.net",
     "dialect": "mysql"
   }
 }

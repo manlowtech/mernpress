@@ -39,11 +39,17 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "node server/index.js",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "heroku-postbuild":"npm install && npm run build && cd server && npm install && npm i sequelize-cli && sequelize db:migrate",
     "eject": "react-scripts eject"
   },
+  
+  "engines": {
+    "node": "16.5.0",
+    "npm": "7.19.1"
+    },
   "keywords": [
     "mernpress",
     "cms",
@@ -75,5 +81,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "customize-cra": "^1.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.0",
+    "react-app-rewired": "^2.1.8"
   }
 }
