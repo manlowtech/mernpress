@@ -40,16 +40,15 @@
   },
   "scripts": {
     "start": "node server/index.js",
-    "build": "react-app-rewired build",
+    "build": "react-scripts build",
     "test": "react-app-rewired test",
-    "heroku-postbuild":"npm install && npm run build && cd server && npm install && npm i sequelize-cli && sequelize db:migrate",
+    "heroku-postbuild": "npm install && npm run build && cd server && npm install && npm i sequelize-cli && sequelize db:migrate",
     "eject": "react-scripts eject"
   },
-  
   "engines": {
     "node": "16.5.0",
     "npm": "7.19.1"
-    },
+  },
   "keywords": [
     "mernpress",
     "cms",

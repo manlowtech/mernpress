@@ -15,7 +15,7 @@
   },
   "production": {
     "username": "mernpress",
-    "password": null,
+    "password": "d60b0cc4",
     "database": "mernpress",
     "host": "db4free.net",
     "dialect": "mysql"
