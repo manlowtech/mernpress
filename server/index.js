@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose')
 const path = require('path')
+const router = require('express').Router
 //const logger = require('morgan');
 require('dotenv').config()
 const app = express();
@@ -14,11 +15,11 @@ let url =""
 let options ={}
 if(process.env.MONGO_URL && process.env.MONGO_URL !== ""){
     require('./mongodb/db')(mongoose,url,options)
-    require('./mongodb')(app)
+    require('./mongodb')(router)
 }else{
-    require('./routes')(app);
+    require('./routes')(router);
 }
-app.get('*', (req, res) => res.status(200).send({
+router.get('*', (req, res) => res.status(200).send({
     message: 'Welcome to  the beginning of nothingness.',
 }));
 if(process.env.NODE_ENV == "production"){
@@ -28,7 +29,7 @@ app.use(express.static(path.join(__dirname, "../", "build")))
 
 // ...
 // Right before your app.listen(), add this:
-app.get("*", (req, res) => {
+router.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../", "build", "index.html"));
 });
 
