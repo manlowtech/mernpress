@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "mern": "node server/index.js",
+    "client":"cd client && npm install && npm install immutable && npm run build",
+    "adds":"npx sequelize-cli db:migrate --env production ",
+    "heroku-postbuild": "npm install && npm run client && npm run build && npm mern"
+    
   },
   "keywords": [
     "mernpress",

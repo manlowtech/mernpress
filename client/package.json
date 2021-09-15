@@ -17,6 +17,7 @@
     "draft-js": "^0.11.7",
     "handlebars-to-jsx": "^0.1.4",
     "history": "^4.10.1",
+    "immutable": "^4.0.0-rc.14",
     "mernmodules": "^1.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
@@ -42,9 +43,6 @@
     "start": "node server/index.js",
     "build": "react-scripts build",
     "test": "react-app-rewired test",
-    "server":"cd server && npm install",
-    "adds":"npx sequelize-cli db:migrate --env production ",
-    "heroku-postbuild": "npm install && npm run server && npm install immutable && npm i @material-ui/lab && npm run build && npm start",
     "eject": "react-scripts eject"
   },
   "engines": {
