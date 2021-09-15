@@ -40,7 +40,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "node server/index.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
