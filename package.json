@@ -42,7 +42,9 @@
     "start": "node server/index.js",
     "build": "react-scripts build",
     "test": "react-app-rewired test",
-    "heroku-postbuild": "npm install && cd server && npm install && npm install sequelize-cli && sequelize db:migrate --env production && npm install immutable @material-ui/lab && npm start ",
+    "server":"cd server && npm install",
+    "adds":"npm install sequelize-cli && sequelize db:migrate --env production ",
+    "heroku-postbuild": "npm install && npm run server && npm install immutable @material-ui/lab && npm start ",
     "eject": "react-scripts eject"
   },
   "engines": {
