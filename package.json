@@ -44,7 +44,7 @@
     "test": "react-app-rewired test",
     "server":"cd server && npm install",
     "adds":"npx sequelize-cli db:migrate --env production ",
-    "heroku-postbuild": "npm install && npm run server && npm install immutable @material-ui/lab &&npm run build && npm start ",
+    "heroku-postbuild": "npm install && npm run server && npm install immutable @material-ui/lab && npm run build && npm start ",
     "eject": "react-scripts eject"
   },
   "engines": {
